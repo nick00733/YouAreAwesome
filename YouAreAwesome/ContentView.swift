@@ -2,20 +2,27 @@
 //  ContentView.swift
 //  YouAreAwesome
 //
-//  Created by Nick Nedjat on 13.01.26.
+//  Created by Nick Nedjat on 11.01.26.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Image(systemName: "swift")
+                .resizable()
+                .scaledToFit()
+                .foregroundStyle(.orange)
+            
+            Text("You Are Awesome!")
+                .font(.largeTitle)
+                .fontWeight(.heavy)
+                .foregroundStyle(.red)
         }
         .padding()
+        
     }
 }
 
