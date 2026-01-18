@@ -29,13 +29,17 @@ struct ContentView: View {
 
             Button("Press Me!") {
                 counter += 1
-
+                let message1 = "You are Great!"
+                let message2 = "You are Awesome!"
+                let image1 = "hand.thumbsup"
+                let image2 = "sun.max.fill"
+                
                 if counter % 2 == 0 {
-                    message = "You are Great!"
-                    imagename = "hand.thumbsup"
+                    message = message1
+                    imagename = image1
                 } else {
-                    message = "You are Awesome!"
-                    imagename = "sun.max.fill"
+                    message = message2
+                    imagename = image2
                 }
             }
             .buttonStyle(.borderedProminent)
