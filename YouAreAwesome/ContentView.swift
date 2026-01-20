@@ -32,8 +32,6 @@ struct ContentView: View {
             Button("Show message!") {
                 let message1 = "You are Great!"
                 let message2 = "You are Awesome!"
-                //let image1 = "image0"
-                //let image2 = "image1"
                 
                 message = (message == message1 ? message2 : message1)
                 //imageName = (imageName == image1 ? image2 : image1)
