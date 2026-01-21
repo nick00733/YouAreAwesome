@@ -21,12 +21,16 @@ struct ContentView: View {
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 30))
                 .shadow(radius: 30)
+                .animation(.default, value: imageName)
 
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundStyle(.red)
                 .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.5)
+                .frame(height: 130)
+                .animation(.easeInOut(duration: 0.15), value: message)
 
             Spacer()
 
@@ -37,11 +41,12 @@ struct ContentView: View {
                 //message = (message == message1 ? message2 : message1)
                 //imageName = (imageName == image1 ? image2 : image1)
                 let messages = ["You are Great!"
+                                ,"When the Genius Bar Needs Help, They Call You!"
                                 ,"You are Awesome!"
                                 ,"You are Fantastic!"
                                 ,"Fabulous? That's You!"
                                 ,"You make me smile!"
-                                ,"When the Genius Bar Needs Help, They Call You!"]
+                                ]
                 if imageNumber < messages.count - 1 {
                     imageNumber += 1
                 } else {
