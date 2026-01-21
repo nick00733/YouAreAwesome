@@ -26,25 +26,31 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundStyle(.red)
+                .multilineTextAlignment(.center)
 
             Spacer()
 
             Button("Show message!") {
-                let message1 = "You are Great!"
-                let message2 = "You are Awesome!"
+                //let message1 = "You are Great!"
+                //let message2 = "You are Awesome!"
                 
-                message = (message == message1 ? message2 : message1)
+                //message = (message == message1 ? message2 : message1)
                 //imageName = (imageName == image1 ? image2 : image1)
-                imageName = "image"+String(imageNumber)
-                
-                if imageNumber < 9 {
+                let messages = ["You are Great!"
+                                ,"You are Awesome!"
+                                ,"You are Fantastic!"
+                                ,"Fabulous? That's You!"
+                                ,"You make me smile!"
+                                ,"When the Genius Bar Needs Help, They Call You!"]
+
+                if imageNumber < messages.count - 1 {
                     imageNumber += 1
                 } else {
                     imageNumber = 0
                 }
                 
-                print(imageNumber)
-                
+                message = messages[imageNumber]
+                imageName = "image\(imageNumber)"
                 
             }
             .buttonStyle(.borderedProminent)
