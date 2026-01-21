@@ -42,7 +42,6 @@ struct ContentView: View {
                                 ,"Fabulous? That's You!"
                                 ,"You make me smile!"
                                 ,"When the Genius Bar Needs Help, They Call You!"]
-
                 if imageNumber < messages.count - 1 {
                     imageNumber += 1
                 } else {
