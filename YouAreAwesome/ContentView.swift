@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var message = ""
     @State private var imageName = ""
     @State private var imageNumber = 0
+    @State private var lastMessageNumber = -1
+    @State private var lastImageNumber = -1
 
     var body: some View {
         VStack {
@@ -47,14 +49,26 @@ struct ContentView: View {
                                 ,"Fabulous? That's You!"
                                 ,"You make me smile!"
                                 ]
-                if imageNumber < messages.count - 1 {
-                    imageNumber += 1
-                } else {
-                    imageNumber = 0
-                }
+                //if imageNumber < messages.count - 1 {
+                //    imageNumber += 1
+                //} else {
+                //    imageNumber = 0
+                //}
+                var MessageNumber = Int.random(in: 0...messages.count - 1)
                 
-                message = messages[imageNumber]
+                while lastMessageNumber == MessageNumber  {
+                    MessageNumber = Int.random(in: 0...messages.count - 1)
+                }
+                message = messages[MessageNumber]
+                lastMessageNumber = MessageNumber
+                
+                var imageNumber = Int.random(in: 0...9)
+                while lastImageNumber == imageNumber  {
+                    imageNumber = Int.random(in: 0...9)
+                }
                 imageName = "image\(imageNumber)"
+                lastImageNumber = imageNumber
+                
                 
             }
             .buttonStyle(.borderedProminent)
