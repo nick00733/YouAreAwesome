@@ -59,25 +59,16 @@ struct ContentView: View {
                 //} else {
                 //    imageNumber = 0
                 //}
-                var MessageNumber = Int.random(in: 0...messages.count - 1)
+                _ = Int.random(in: 0...messages.count - 1)
                 
-                nonRepeatingRandom(lastNumber: lastMessageNumber, upperBounds: c)
+                lastMessageNumber = nonRepeatingRandom(lastNumber: lastMessageNumber, upperBounds: messages.count-1)
+                message = messages[lastMessageNumber]
                 
-                var imageNumber: Int
-                repeat {
-                    imageNumber = Int.random(in: 0...NumberOfImages-1)
-                } while lastImageNumber == imageNumber
-                imageName = "image\(imageNumber)"
-                lastImageNumber = imageNumber
+                lastImageNumber = nonRepeatingRandom(lastNumber: lastImageNumber, upperBounds: NumberOfImages-1)
+                imageName = "image\(lastImageNumber)"
                 
-                var soundNumber: Int
-                repeat {
-                    soundNumber = Int.random(in: 0...5)
-                } while lastSoundNumber == soundNumber
-                soundName = "sound\(soundNumber)"
-                lastSoundNumber = soundNumber
-                
-                playSound(soundName: soundName)
+                lastSoundNumber = nonRepeatingRandom(lastNumber: lastSoundNumber, upperBounds: 5)
+                playSound(soundName: "sound\(soundName)")
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
