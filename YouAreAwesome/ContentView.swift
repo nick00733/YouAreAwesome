@@ -61,11 +61,7 @@ struct ContentView: View {
                 //}
                 var MessageNumber = Int.random(in: 0...messages.count - 1)
                 
-                while lastMessageNumber == MessageNumber  {
-                    MessageNumber = Int.random(in: 0...messages.count - 1)
-                }
-                message = messages[MessageNumber]
-                lastMessageNumber = MessageNumber
+                nonRepeatingRandom(lastNumber: lastMessageNumber, upperBounds: c)
                 
                 var imageNumber: Int
                 repeat {
@@ -81,17 +77,7 @@ struct ContentView: View {
                 soundName = "sound\(soundNumber)"
                 lastSoundNumber = soundNumber
                 
-                guard let soundFile = NSDataAsset(name: soundName) else {
-                    print("🤬Could not read file named \(soundName)")
-                    return
-                }
-                do {
-                    audioPlayer = try AVAudioPlayer(data: soundFile.data)
-                    audioPlayer.play()
-                } catch {
-                    print("🤬 ERROR: \(error.localizedDescription)")
-                }
-                
+                playSound(soundName: soundName)
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
@@ -99,6 +85,27 @@ struct ContentView: View {
             .fontWeight(.ultraLight)
         }
         .padding()
+    }
+    
+    func playSound(soundName: String) {
+        guard let soundFile = NSDataAsset(name: soundName) else {
+            print("🤬Could not read file named \(soundName)")
+            return
+        }
+        do {
+            audioPlayer = try AVAudioPlayer(data: soundFile.data)
+            audioPlayer.play()
+        } catch {
+            print("🤬 ERROR: \(error.localizedDescription)")
+        }
+    }
+    
+    func nonRepeatingRandom(lastNumber: Int, upperBounds: Int) -> Int {
+        var newNumber: Int
+        repeat{
+            newNumber = Int.random(in: 0...upperBounds)
+        } while lastNumber == newNumber
+        return newNumber
     }
 }
 
