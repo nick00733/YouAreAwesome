@@ -68,7 +68,7 @@ struct ContentView: View {
                 imageName = "image\(lastImageNumber)"
                 
                 lastSoundNumber = nonRepeatingRandom(lastNumber: lastSoundNumber, upperBounds: 5)
-                playSound(soundName: "sound\(soundName)")
+                playSound(soundName: "sound\(lastSoundNumber)")
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
