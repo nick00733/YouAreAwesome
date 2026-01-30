@@ -50,8 +50,8 @@ struct ContentView: View {
                         if audioPlayer != nil && audioPlayer.isPlaying {
                             audioPlayer.stop()
                         }
-                        
                     }
+                
                 Spacer()
                 Button("Show message!") {
                     //let message1 = "You are Great!"
@@ -88,10 +88,10 @@ struct ContentView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .font(.title2)
-                .tint(.orange)
                 .fontWeight(.ultraLight)
             }
         }
+        .tint(.accentColor)
         .padding()
     }
     
